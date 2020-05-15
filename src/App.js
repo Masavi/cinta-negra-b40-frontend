@@ -17,8 +17,8 @@ import {
 function App() {
   return (
     <Fragment>
-      <Navigation />
       <Router>
+        <Navigation />
         <Switch>
           <Route path="/login">
             <Login />
