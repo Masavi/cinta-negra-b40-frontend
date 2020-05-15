@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 // Views
 import Login from './views/Login';
 import Home from './views/Home';
+import Signup from './views/Signup';
 
 // Components
 import Navigation from './components/Navigation';
@@ -20,11 +21,14 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-          <Route path="/login">
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route exact path="/signup">
+            <Signup />
           </Route>
         </Switch>
       </Router>
