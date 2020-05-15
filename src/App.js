@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import Navigation from './components/Navigation';
 
 // Misc
+import { Container } from 'reactstrap';
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Routes from './Routes';
 
@@ -12,9 +13,11 @@ function App() {
     <Fragment>
       <Router>
         <Navigation />
-        <Switch>
-          { Routes }
-        </Switch>
+        <Container className="mt-4">
+          <Switch>
+            { Routes }
+          </Switch>
+        </Container>
       </Router>
     </Fragment>
   );
