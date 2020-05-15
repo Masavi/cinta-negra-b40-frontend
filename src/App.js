@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+// Views
+import Login from './views/Login';
+import Home from './views/Home';
+
+// Components
+import Navigation from './components/Navigation';
+
+// Misc
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
-    <React.Fragment>
-      <h1>Hola desde App</h1>
-      <p>lorem ipsum dolor sit amet</p>
-    </React.Fragment>
+    <Fragment>
+      <Navigation />
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </Fragment>
   );
 }
 
