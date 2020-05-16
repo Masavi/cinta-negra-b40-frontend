@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import {
   Button,  
   Form,  
@@ -32,10 +33,20 @@ const Signup = () => {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Enviando form!!');
-    console.log(firstName, lastName, email, password);
+    const jsonSend = {
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      password,
+    }
+    try {
+      const res = await axios.post('https://cinta-negra-backend.herokuapp.com/api/v1/users/signup', jsonSend);
+      alert('Successful signup')
+    } catch (error) {
+      alert('Error on signup')
+    }
   }
 
   return (
