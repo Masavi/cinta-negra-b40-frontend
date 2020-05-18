@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 // Components
 import Navigation from './components/Navigation';
+import Footer from './components/Footer/Footer';
 
 // Misc
 import { Container } from 'reactstrap';
@@ -18,6 +19,7 @@ function App() {
             { Routes }
           </Switch>
         </Container>
+        <Footer />
       </Router>
     </Fragment>
   );
