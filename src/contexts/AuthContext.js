@@ -21,7 +21,7 @@ const AuthContextProvider = (props) => {
 
   return (
     <AuthContext.Provider value={{ 
-      color:"blue", isAuth, getToken, setToken, removeToken
+      isAuth, getToken, setToken, removeToken
     }}>
       { props.children }
     </AuthContext.Provider>

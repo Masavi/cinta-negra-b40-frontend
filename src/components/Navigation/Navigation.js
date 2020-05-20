@@ -12,7 +12,7 @@
 } from 'reactstrap';
 
 const Navigation = () => {
-  const { color, isAuth } = useContext(AuthContext);
+  const { isAuth } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -23,7 +23,7 @@ const Navigation = () => {
       className="navbar navbar-dark bg-dark"
       // style={{ backgroundColor: "black", color: "red" }}
       expand="md">
-      <NavbarBrand tag={Link} to="/">{ color }</NavbarBrand>
+      <NavbarBrand tag={Link} to="/">Maui App</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
@@ -40,7 +40,7 @@ const Navigation = () => {
       className="navbar navbar-dark bg-dark"
       // style={{ backgroundColor: "black", color: "red" }}
       expand="md">
-      <NavbarBrand tag={Link} to="/">{ color }</NavbarBrand>
+      <NavbarBrand tag={Link} to="/">Maui App</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
