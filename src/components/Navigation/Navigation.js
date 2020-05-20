@@ -1,4 +1,5 @@
- import React, { useState } from 'react';
+ import React, { useState, useContext } from 'react';
+ import { AuthContext } from '../../contexts/AuthContext';
  import { Link } from 'react-router-dom';
  import {
   Collapse,
@@ -10,8 +11,8 @@
   NavLink,
 } from 'reactstrap';
 
-
 const Navigation = (props) => {
+  const { color } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const token = localStorage.getItem("token");
   console.log('🌞', token);
@@ -24,7 +25,7 @@ const Navigation = (props) => {
       className="navbar navbar-dark bg-dark"
       // style={{ backgroundColor: "black", color: "red" }}
       expand="md">
-      <NavbarBrand tag={Link} to="/">Maui App</NavbarBrand>
+      <NavbarBrand tag={Link} to="/">{ color }</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
@@ -41,7 +42,7 @@ const Navigation = (props) => {
       className="navbar navbar-dark bg-dark"
       // style={{ backgroundColor: "black", color: "red" }}
       expand="md">
-      <NavbarBrand tag={Link} to="/">Maui App</NavbarBrand>
+      <NavbarBrand tag={Link} to="/">{ color }</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
