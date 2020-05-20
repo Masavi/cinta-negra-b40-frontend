@@ -3,14 +3,9 @@ import { Route } from 'react-router-dom';
 
 // Views
 import Login from './views/Login';
+import Logout from './views/Logout';
 import Home from './views/Home';
 import Signup from './views/Signup';
-
-const Logout = (props) => {
-  localStorage.removeItem('token');
-  alert('Succesful logout');
-  return props.history.push("/");
-}
 
 export default 
   <React.Fragment>

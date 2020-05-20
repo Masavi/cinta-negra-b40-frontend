@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 import axios from 'axios';
 import {
   Button,  
@@ -9,6 +10,7 @@ import {
 } from 'reactstrap';
 
 const Login = (props) => {
+  const { setToken } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,8 +19,7 @@ const Login = (props) => {
     const jsonSend = { email, password }
     try {
       const res = await axios.post('https://cinta-negra-backend.herokuapp.com/api/v1/users/login', jsonSend);
-      console.log(res.data);
-      localStorage.setItem('token', res.data.token);
+      setToken(res.data.token)
       alert('Successful login')
     } catch (error) {
       alert(error);

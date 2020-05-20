@@ -11,16 +11,14 @@
   NavLink,
 } from 'reactstrap';
 
-const Navigation = (props) => {
-  const { color } = useContext(AuthContext);
+const Navigation = () => {
+  const { color, isAuth } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
-  const token = localStorage.getItem("token");
-  console.log('🌞', token);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const renderNavigation = () => {
-    return token
+    return isAuth
       ? (<Navbar
       className="navbar navbar-dark bg-dark"
       // style={{ backgroundColor: "black", color: "red" }}
