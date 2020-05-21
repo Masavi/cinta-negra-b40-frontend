@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 
 // Contexts
 import AuthContextProvider from './contexts/AuthContext';
+import HTTPContextProvider from './contexts/httpContext';
 
 // Misc
 import { Container } from 'reactstrap';
@@ -17,13 +18,15 @@ function App() {
     <Fragment>
       <Router>
         <AuthContextProvider>
-          <Navigation />
-          <Container className="mt-4">
-            <Switch>
-              { Routes }
-            </Switch>
-          </Container>
-          <Footer />
+          <HTTPContextProvider>
+            <Navigation />
+            <Container className="mt-4">
+              <Switch>
+                { Routes }
+              </Switch>
+            </Container>
+            <Footer />
+          </HTTPContextProvider>
         </AuthContextProvider>
       </Router>
     </Fragment>

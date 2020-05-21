@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 
 const Logout = () => {
-  const { removeTokenAndLogout } = useContext(AuthContext);
-  removeTokenAndLogout();
+  const { removeToken } = useContext(AuthContext);
+  removeToken();
   alert('Successful logout');
 
   return (

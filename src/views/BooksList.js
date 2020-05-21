@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import { HTTPContext } from '../contexts/httpContext';
 import Book from '../components/Book/Book.js';
 // Conexion a mi websocket
 // El web socket retorna un objeto con datos
 
 const BooksList = () => {
-  const { axiosInstance } = useContext(AuthContext);
+  const { axiosInstance } = useContext(HTTPContext);
   const [books, setBooks] = useState([]);
   const [text, setText] = useState('Loading books...');
 
@@ -19,6 +19,7 @@ const BooksList = () => {
         setText(`There are ${books.length} available books`);
       })
       .catch(() => setText(`Error getting available books...`));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return ( 
