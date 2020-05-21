@@ -8,6 +8,7 @@ import Home from './views/Home';
 import Signup from './views/Signup';
 import BookForm from './views/BookForm';
 import BooksList from './views/BooksList';
+import Profile from './views/Profile';
 
 export default
   <React.Fragment>
@@ -29,5 +30,8 @@ export default
     <Route
       exact path="/books-list"
       component={ BooksList } />
+    <Route
+      exact path="/profile"
+      component={ Profile } />
   </React.Fragment>
 ;

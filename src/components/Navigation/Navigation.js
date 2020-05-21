@@ -35,6 +35,9 @@ const Navigation = () => {
           <NavItem>
             <NavLink tag={Link} to="/book-form">Add Book</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to="/profile">Profile</NavLink>
+          </NavItem>
         </Nav>
       </Collapse>
     </Navbar>)
