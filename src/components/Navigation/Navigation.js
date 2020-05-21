@@ -30,7 +30,7 @@ const Navigation = () => {
             <NavLink tag={Link} to="/logout">Logout</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/books">Books</NavLink>
+            <NavLink tag={Link} to="/books-list">Books List</NavLink>
           </NavItem>
           <NavItem>
             <NavLink tag={Link} to="/book-form">Add Book</NavLink>
