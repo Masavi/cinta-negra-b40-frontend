@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
-import axios from 'axios';
 import {
   Button,  
   Form,  
@@ -11,47 +10,60 @@ import {
 } from 'reactstrap';
 
 const BookForm = () => {
-  const { isAuth, setTokenAndLogin } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // Contexto
+  const { isAuth, axiosInstance } = useContext(AuthContext);
 
+  // Estado
+  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState('');
+
+  // Redireccionar si el usuario no esta autentica
   if (!isAuth) return ( <Redirect to="/login" /> )
+
+  // Funciones
+  const formCleanup = () => {
+    setAuthor('');
+    setTitle('');
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const jsonSend = { email, password }
+    const jsonSend = {
+      author,
+      title,
+    }
+
     try {
-      const res = await axios.post('https://cinta-negra-backend.herokuapp.com/api/v1/users/login', jsonSend);
-      setTokenAndLogin(res.data.token)
-      alert('Successful login')
+      await axiosInstance.post('/api/v1/books', jsonSend);
+      formCleanup();
+      alert('Book successfully added');
     } catch (error) {
       alert(error);
     }
   };
 
+  // Render
   return (
     <React.Fragment>
       <h1 className="mb-4">Add a new book</h1>
       <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label>Email</Label>
+      <FormGroup>
+          <Label>Author</Label>
           <Input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            id="exampleEmail"
-            placeholder="type your email" />
+            type="text"
+            name="author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            placeholder="type the author's name here" />
         </FormGroup>
         <FormGroup>
-          <Label>Password</Label>
+          <Label>Title</Label>
           <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            id="examplePassword"
-            placeholder="type your password here" />
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="type your title" />
         </FormGroup>
         <Button>Submit</Button>
       </Form>
