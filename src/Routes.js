@@ -6,8 +6,9 @@ import Login from './views/Login';
 import Logout from './views/Logout';
 import Home from './views/Home';
 import Signup from './views/Signup';
+import BookForm from './views/BookForm';
 
-export default 
+export default
   <React.Fragment>
     <Route
       exact path="/"
@@ -21,5 +22,8 @@ export default
     <Route
       exact path="/signup"
       component={ Signup } />
+    <Route
+      exact path="/book-form"
+      component={ BookForm } />
   </React.Fragment>
 ;

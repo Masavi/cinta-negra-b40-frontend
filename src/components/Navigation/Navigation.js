@@ -17,9 +17,8 @@ const Navigation = () => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  const renderNavigation = () => {
-    return isAuth
-      ? (<Navbar
+  const authNavbar = () => {
+    return (<Navbar
       className="navbar navbar-dark bg-dark"
       // style={{ backgroundColor: "black", color: "red" }}
       expand="md">
@@ -33,10 +32,16 @@ const Navigation = () => {
           <NavItem>
             <NavLink tag={Link} to="/books">Books</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to="/book-form">Add Book</NavLink>
+          </NavItem>
         </Nav>
       </Collapse>
     </Navbar>)
-    : (<Navbar
+  }
+
+  const publicNavbar = () => {
+    return (<Navbar
       className="navbar navbar-dark bg-dark"
       // style={{ backgroundColor: "black", color: "red" }}
       expand="md">
@@ -53,6 +58,12 @@ const Navigation = () => {
         </Nav>
       </Collapse>
     </Navbar>)
+  }
+
+  const renderNavigation = () => {
+    return isAuth
+      ? authNavbar()
+      : publicNavbar()
   }
 
   return (
