@@ -16,9 +16,9 @@ const BooksList = () => {
       .then((response) => {
         const books = response.data;
         setBooks(books);
-        setText(`There is ${books.length} books available`);
+        setText(`There are ${books.length} available books`);
       })
-      .catch(() => setText(`There are no books available`));
+      .catch(() => setText(`There are no available books`));
   }, [])
 
   return ( 
