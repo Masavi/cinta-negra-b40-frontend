@@ -18,7 +18,7 @@ const BooksList = () => {
         setBooks(books);
         setText(`There are ${books.length} available books`);
       })
-      .catch(() => setText(`There are no available books`));
+      .catch(() => setText(`Error getting available books...`));
   }, [])
 
   return ( 
