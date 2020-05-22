@@ -8,11 +8,14 @@ const axiosInstance = axios.create({
   baseURL: 'https://cinta-negra-backend.herokuapp.com'
 });
 
+axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+
 const HTTPContextProvider = (props) => {
   const { token } = useContext(AuthContext);
-  useEffect(() => {
-    axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  }, [token]);
+  // useEffect(() => {
+  //   console.log('🌞', token);
+  //   axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+  // }, [token]);
   return (
     <HTTPContext.Provider value={{ axiosInstance }}>
       { props.children }
