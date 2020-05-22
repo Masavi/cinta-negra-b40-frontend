@@ -25,7 +25,9 @@ const AuthContextProvider = (props) => {
       setAuth(true);
       const decodedToken = decode(encodedToken);
       setToken(encodedToken);
-      setUser(decodedToken);
+      // decodedToken.exp -> expiracion
+      // decodedToken.iat -> timestamp actual
+      setUser(decodedToken.data);
     }
   }, [ ]);
 
